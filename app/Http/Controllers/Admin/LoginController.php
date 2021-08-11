@@ -13,6 +13,10 @@ class LoginController extends Controller
     }
     public function login(LoginRequest $request)
     {
-        return 'HI';
+        $remember_me = $request->has('remember_me') ? true : false;
+        if (auth()->guard('admin')->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+            return redirect()->route('admin.dashboard');
+        }
+        return redirect()->back()->with(['error' => 'يوجد خطأ في البيانات']);
     }
 }
