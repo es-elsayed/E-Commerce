@@ -11,7 +11,7 @@ class LanguageController extends Controller
 {
     public function index()
     {
-        $languages = Language::select()->paginate(PAGINATION_COUNT);
+        $languages = Language::selection()->paginate(PAGINATION_COUNT);
         return view('admin.language.index')->with('languages', $languages);
     }
     public function create()
@@ -30,7 +30,7 @@ class LanguageController extends Controller
     }
     public function edit($id)
     {
-        $language = Language::select()->find($id);
+        $language = Language::selection()->find($id);
         if (!$language)
             return redirect()->route('admin.language')->with(['error' => 'هذه اللغة غير موجودة']);
         return view('admin.language.edit', compact('language'));
