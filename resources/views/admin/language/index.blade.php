@@ -57,19 +57,18 @@
                                                 @isset($languages)
                                                     @foreach ($languages as $language)
                                                         <tr>
-                                                            <td>{{ $lanuage->name }}</td>
-                                                            <td>{{ $lanuage->abbr }}</td>
-                                                            <td>{{ $lanuage->direction }}</td>
-                                                            <td>{{ $lanuage->active }}</td>
+                                                            <td>{{ $language->name }}</td>
+                                                            <td>{{ $language->abbr }}</td>
+                                                            <td>{{ $language->getDirection() }}</td>
+                                                            <td>{{ $language->getActive() }}</td>
                                                             <td>
                                                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                                                    <a href=""
+                                                                    <a href="{{ route('admin.language.edit', $language->id) }}"
                                                                         class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
-                                                                    <button type="button" value="" onclick=""
+                                                                    <a href="{{ route('admin.language.delete', $language->id) }}"
                                                                         class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1"
-                                                                        data-toggle="modal" data-target="#rotateInUpRight">
-                                                                        حذف
-                                                                    </button>
+                                                                        onclick="return confirm('Are you sure you want to delete this item?');">حذف</a>
+
 
                                                                 </div>
                                                             </td>

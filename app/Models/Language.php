@@ -8,7 +8,7 @@ class Language extends Model
 {
     protected $table = 'languages';
     protected $fillable = [
-        'abbr', 'locale', 'name', 'native', 'direction'
+        'abbr', 'locale', 'name', 'native', 'direction', 'active'
     ];
     public function scopeActive($query)
     {
@@ -16,6 +16,14 @@ class Language extends Model
     }
     public function scopeSelection($query)
     {
-        return $query->select('abbr', 'name', 'direction', 'active');
+        return $query->select('id', 'abbr', 'name', 'direction', 'active');
+    }
+    public function getActive()
+    {
+        return $this->active == 1 ? "مفعل" : "غير مفعل";
+    }
+    public function getDirection()
+    {
+        return $this->direction == 'rtl' ? "من اليمين إلى اليسار" : "من اليسار إلى اليمين ";
     }
 }

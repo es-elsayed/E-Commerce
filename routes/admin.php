@@ -19,6 +19,13 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     Route::get('/', 'DashboardController@index')->name('admin.dashboard');
     Route::group(['prefix' => 'language'], function () {
         Route::get('/', 'LanguageController@index')->name('admin.language');
+        Route::get('/create', 'LanguageController@create')->name('admin.language.create');
+        Route::post('/store', 'LanguageController@store')->name('admin.language.store');
+
+        Route::get('/edit/{id}', 'LanguageController@edit')->name('admin.language.edit');
+        Route::post('/update/{id}', 'LanguageController@update')->name('admin.language.update');
+
+        Route::get('/delete/{id}', 'LanguageController@destroy')->name('admin.language.delete');
     });
 });
 Route::group(['namespace' => 'Admin', 'middleware' => 'guest:admin'], function () {
