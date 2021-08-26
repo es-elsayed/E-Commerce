@@ -27,13 +27,13 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
         Route::get('/delete/{id}', 'LanguageController@destroy')->name('admin.language.delete');
     });
     // ********************** Main Categories **********************
-    Route::group(['prefix' => 'main_categories'], function () {
-        Route::get('/', 'MainCategoryController@index')->name('admin.main_category');
-        Route::get('/create', 'MainCategoryController@create')->name('admin.main_category.create');
-        Route::post('/store', 'MainCategoryController@store')->name('admin.main_category.store');
-        Route::get('/edit/{id}', 'MainCategoryController@edit')->name('admin.main_category.edit');
-        Route::post('/update/{id}', 'MainCategoryController@update')->name('admin.main_category.update');
-        Route::get('/delete/{id}', 'MainCategoryController@destroy')->name('admin.main_category.delete');
+    Route::group(['prefix' => 'categories'], function () {
+        Route::get('/', 'MainCategoryController@index')->name('admin.maincategory');
+        Route::get('/create', 'MainCategoryController@create')->name('admin.maincategory.create');
+        Route::post('/store', 'MainCategoryController@store')->name('admin.maincategory.store');
+        Route::get('/edit/{id}', 'MainCategoryController@edit')->name('admin.maincategory.edit');
+        Route::post('/update/{id}', 'MainCategoryController@update')->name('admin.maincategory.update');
+        Route::get('/delete/{id}', 'MainCategoryController@destroy')->name('admin.maincategory.delete');
     });
 });
 Route::group(['namespace' => 'Admin', 'middleware' => 'guest:admin'], function () {

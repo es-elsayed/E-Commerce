@@ -32,11 +32,16 @@ class LanguageRequest extends FormRequest
     public function messages()
     {
         return [
-            'required' => 'This field is required',
-            'string' => 'This field must be string',
-            'name.max' => 'Maximum character must be less than 100',
-            'abbr.max' => 'Maximum character must be less than 10',
-            'in' => 'Invalid input data',
+            // 'required' => 'This field is required',
+            // 'string' => 'This field must be string',
+            // 'name.max' => 'Maximum character must be less than 100',
+            // 'abbr.max' => 'Maximum character must be less than 10',
+            // 'in' => 'Invalid input data',
+            'required' => 'هذا الحقل مطلوب',
+            'string' => 'هذا الحقل لا بد أن يكون أحرف',
+            'name.max' => 'أقصى عدد أحرف 100',
+            'abbr.max' => 'أقصى عدد أحرف 10',
+            'in' => 'مدخل غير صحيح',
         ];
     }
 }

@@ -14,6 +14,10 @@ class MainCategory extends Model
     {
         return $query->select('id', 'name', 'translation_lang', 'slug', 'image', 'active');
     }
+    public function getImageAttribute($val)
+    {
+        return $val != 0 ? asset($val) : '';
+    }
     public function getActive()
     {
         return $this->active == 1 ? 'مفعل' : 'غير مفعل';

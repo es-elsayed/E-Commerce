@@ -42,12 +42,12 @@
 
                                 <div class="card-content collapse show">
                                     <div class="card-body card-dashboard">
-                                        <table class="table display nowrap table-striped table-bordered ">
+                                        <table class="table display nowrap table-striped table-bordered scroll-horizontal">
                                             <thead>
                                                 <tr>
                                                     <th> الاسم</th>
-                                                    <th>الاختصار</th>
                                                     <th>الحالة</th>
+                                                    <th>الصورة</th>
                                                     <th>الإجراءات</th>
                                                 </tr>
                                             </thead>
@@ -57,13 +57,16 @@
                                                     @foreach ($categories as $category)
                                                         <tr>
                                                             <td>{{ $category->name }}</td>
-                                                            <td>{{ $category->translation_lang }}</td>
                                                             <td>{{ $category->getActive() }}</td>
+                                                            <td><img class="w-50" src="{{ $category->image }}" alt="">
+                                                            </td>
                                                             <td>
                                                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                                                    <a href="{{ route('admin.language.edit', $language->id) }}"
+                                                                    <a href="{{ route('admin.maincategory.edit', $category->id) }}"
+                                                                        class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1">تفعيل</a>
+                                                                    <a href="{{ route('admin.maincategory.edit', $category->id) }}"
                                                                         class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
-                                                                    <a href="{{ route('admin.language.delete', $language->id) }}"
+                                                                    <a href="{{ route('admin.maincategory.delete', $category->id) }}"
                                                                         class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1"
                                                                         onclick="return confirm('Are you sure you want to delete this item?');">حذف</a>
 
